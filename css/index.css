@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+body {
+  background-color: #fff;
+}
+body nav {
+  margin: 0 auto;
+  width: 960px;
+}
+body nav img {
+  width: 960px;
+  height: 240px;
+  box-shadow: #808080 0px 4px 5px;
+  border-radius: 5px;
+}
+body #container {
+  position: relative;
+  display: flex;
+  width: 960px;
+  margin: 0 auto;
+}
+body #container aside {
+  flex: 1;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+body #container aside #aside-ul {
+  width: 6em;
+}
+body #container aside #aside-ul li {
+  font-size: 1.5em;
+  margin: 1em;
+  font-family: "微软雅黑";
+  color: #fc8;
+}
+body #container aside #aside-ul li:hover {
+  color: #9cf;
+  cursor: pointer;
+}
+body #container section#articles {
+  flex: 7;
+  margin: 30px;
+}
+body #container section#articles ul#articles-ul li {
+  margin: 1em;
+  font-family: "calibri", "微软雅黑";
+}
+body #container section#articles ul#articles-ul li span.date {
+  font-size: 1.3em;
+  color: #ccc;
+}
+body #container section#articles ul#articles-ul li a {
+  text-decoration: none;
+  color: #fc8;
+  font-size: 1.3em;
+}
+body #container section#articles ul#articles-ul li a:hover {
+  color: #9cf;
+}
+body #container section#articles ul#articles-ul li p {
+  margin-left: 6.5em;
+  color: #666;
+}
+body #container footer {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  color: #ccc;
+  font-size: 0.8em;
+  border-top: #999 dashed 1px;
+  padding-top: 10px;
+}
