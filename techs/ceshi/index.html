@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>测试</title>
+	<script type="text/javascript" src="../../js/prettify.js"></script>
+	<link rel="stylesheet" href="../../css/article.css">
+</head>
+<body onload="prettyPrint()">
+	<nav>
+		<img src="../../images/bg.png" alt="" id="bg">
+	</nav>
+	<div id="container">
+		<aside>
+			<ul id="aside-ul">
+				<li><a href="../../">首页</a></li>
+				<li class="selected"><a href="../../techs">前端</a></li>
+				<li><a href="../../projects">作品</a></li>
+				<li><a href="../../literature">文艺</a></li>
+			</ul>
+		</aside>
+		<section id="articles">
+			<article class="post-content">
+			<div class="title">
+				<h2 class="title">FLUX教程</h2>
+				<span class="date">2015-03-14</span>
+			</div>
+			<p>原文地址：<a href="http://blog.andrewray.me/flux-for-stupid-people/">http://blog.andrewray.me/flux-for-stupid-people/</a></p>
+			</blockquote>
+
+			<p>篇幅过长，没有阅读（<a href="http://zhidao.baidu.com/link?url=J-CJXq3dC4oPgQacI5pukD_S4-9HagnMMGB4YJT9hUFufaHxH7enybUz7e6vBEpW4IyV8wOZqNLvl_CMEYs6Jq">TL;DR</a>）。作为一个脑袋不咋灵光的人，在我挣扎着学习Flux时，希望有人能告诉我这篇文章里的内容。这不是一篇简单的、好的文档，而且它还有许多需要改正的部分内容。</p>
+
+			<p>这篇文章，紧接着上篇《给新手（笨笨）准备的ReactJS介绍》</p>
+
+			<p>我该用Flux么？</p>
+
+			<p>如果你的应用要处理一些<strong>动态数据</strong>的话，那么答案是“<strong>是的</strong>”，你很可能应该用Flux。</p>
+
+			<p>如果你的应用只是不用共享状态的<strong>静态页面</strong>，且你永远不需要保存或者更新数据，那么答案是“<strong>不</strong>”，Flux不会给你带来任何提升。</p>
+
+			<p>为什么用Flux？</p>
+
+			<p>小幽默下，因为Flux本是个难以理解的概念，为什么你还把问题整的更加复杂？</p>
+
+			<p>90%的iOS应用通过<strong>table view呈现数据</strong>。iOS工具包把数据呈现与数据模型定义的非常好，以至于让开发过程变得很简单。</p>
+
+			<p>在前端，我们没有如iOS那样的便利条件，相反的<strong>我们有个大麻烦</strong>，那就是没人知道怎么正确的构建一个前端应用程序。说真的，我在这个行业工作了几年了，从没有一个“最佳实践”讲授这方面内容的。相对应的“库”倒是很多，jQuery？Angular？Backbone？Handlebars？这些库都避开了数据流（data flow）的处理，数据流该怎么处理始终困扰着我们。</p>
+
+			<p>Flux是啥？</p>
+
+			<p>Flux是一个描述了对指定的事件和监听器进行“单向”数据流处理的一个概念词。所以根本没有名叫Flux的这么个库，但你需要的是<a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js">Flux分配器</a>（Flux Dispatcher）和任何一个Javascript<a href="http://notes.jetienne.com/2011/03/22/microeventjs.html">事件库</a>。</p>
+
+			<p><a href="http://notes.jetienne.com/2011/03/22/microeventjs.html">官方文档</a>被写得很意识流（stream of conciousness），而且它并不适合开始学习Flux。一旦你理解了Flux，再去看文档会感觉融会贯通。</p>
+
+			<p>不要尝试去比较Flux和MVC架构，那会让你更加困惑。</p>
+
+			<p>好了，让我们开始吧，为了<strong>解释Flux的概念</strong>我会用例子带你了解它们。</p>
+
+			<h2>1. 视图“分派了”“一个操作”</h2>
+
+			<p>一个<strong>分配器（dispatcher）</strong>是基于一个事件系统使用的。它被用来广播触发的事件并注册事件的回调，而且有且<strong>只有一个全局分配器</strong>。你应该使用Facebook <a href="https://github.com/facebook/flux/blob/master/src/Dispatcher.js">Dispatcher Library</a>。它非常容易初始化：</p>
+			<pre><code class="prettyprint" data-lang="text">var AppDispatcher = new Dispatcher();</code></pre>
+
+			<p>让我们做个“new”按钮，用来像列表中添加个事项。</p>
+
+			<pre><code class="prettyprint" data-lang="text">&lt;button onClick={ this.createNewItem }&gt;New Item&lt;/button&gt;</code></pre>
+			<p>在按钮被点击时发生了什么？你的视图<strong>派发了一个特定的事件</strong>，事件中包含着事件名和新事项的数据，如下代码：</p>
+			<pre><code class="prettyprint" data-lang="text">createNewItem: function( evt ) {
+			    AppDispatcher.dispatch({
+			        eventName: 'new-item',
+			        newItem: { name: 'Marco' } // example data
+			    });
+			}</code></pre>
+			
+			</article>
+		</section>
+		<footer>
+			<span>Email：tanbowensg@gmail.com</span>
+		</footer>
+	</div>
+</body>
+</html>

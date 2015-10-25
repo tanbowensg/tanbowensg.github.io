@@ -84,25 +84,3 @@ body #container footer {
   border-top: #999 dashed 1px;
   padding-top: 10px;
 }
-body #container section#articles {
-  flex: 7;
-  margin: 30px;
-}
-body #container section#articles ul#articles-ul li {
-  margin: 1em;
-}
-body #container section#articles ul#articles-ul li span.date {
-  font-size: 1.3em;
-  color: #ccc;
-}
-body #container section#articles ul#articles-ul li a {
-  text-decoration: none;
-  color: #fc8;
-  font-size: 1.3em;
-}
-body #container section#articles ul#articles-ul li a:hover {
-  color: #9cf;
-}
-body #container section#articles ul#articles-ul li p {
-  margin-left: 6.5em;
-}
